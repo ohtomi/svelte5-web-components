@@ -1,3 +1,9 @@
+<svelte:options
+        customElement={{
+            tag: "svelte-life-game",
+    }}
+/>
+
 <script lang="ts">
     import {createLifeGame} from './lib/state/';
     import LifeGameBoard from './lib/LifeGameBoard.svelte';
