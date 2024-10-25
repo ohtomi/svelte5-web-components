@@ -1,6 +1,14 @@
 <svelte:options
         customElement={{
             tag: "svelte-life-game",
+            props: {
+                rowSize: { reflect: true, type: 'Number', attribute: 'row' },
+                colSize: { reflect: true, type: 'Number', attribute: 'col' },
+                cellSize: { reflect: true, type: 'String', attribute: 'cell-size' },
+                gridColor: { reflect: true, type: 'String', attribute: 'grid-color' },
+                aliveCellColor: { reflect: true, type: 'String', attribute: 'alive-cell-color' },
+                deadCellColor: { reflect: true, type: 'String', attribute: 'dead-cell-color' },
+            },
     }}
 />
 
@@ -9,7 +17,27 @@
     import LifeGameBoard from './lib/LifeGameBoard.svelte';
     import Oops from './lib/Oops.svelte';
 
-    let result = createLifeGame(20, 20);
+    type Props = {
+        rowSize?: number;
+        colSize?: number;
+
+        cellSize?: string;
+
+        gridColor?: string;
+        aliveCellColor?: string;
+        deadCellColor?: string;
+    };
+
+    let {
+        rowSize = 20,
+        colSize = 20,
+        cellSize = '30px',
+        gridColor = '#333',
+        aliveCellColor = 'red',
+        deadCellColor = '#eee',
+    }: Props = $props();
+
+    let result = createLifeGame(rowSize, colSize);
 
     let {lifeGame, err} = $derived.by(() => {
         return result.match(
@@ -23,7 +51,12 @@
     {#if err}
         <Oops message={err.message}/>
     {:else if lifeGame}
-        <LifeGameBoard {lifeGame}/>
+        <LifeGameBoard {lifeGame}
+                       {cellSize}
+                       {gridColor}
+                       {aliveCellColor}
+                       {deadCellColor}
+        />
     {/if}
 </div>
 

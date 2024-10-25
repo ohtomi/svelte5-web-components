@@ -14,16 +14,18 @@
 
     type Props = {
         lifeGame: UnResultOk<ReturnType<typeof createLifeGame>>;
-        aliveCellColor?: string;
-        deadCellColor?: string;
-        cellSize?: string;
+        gridColor: string;
+        aliveCellColor: string;
+        deadCellColor: string;
+        cellSize: string;
     };
 
     let {
         lifeGame,
-        cellSize = '30px',
-        aliveCellColor = '#eee',
-        deadCellColor = '#333',
+        cellSize,
+        gridColor,
+        aliveCellColor,
+        deadCellColor,
     }: Props = $props();
 
     const handleMoveAhead = () => {
@@ -73,6 +75,7 @@
     <div class="grid"
          style={`
             --cell-size: ${cellSize};
+            --grid-color: ${gridColor};
             --alive-cell-color: ${aliveCellColor};
             --dead-cell-color: ${deadCellColor};
          `}
@@ -127,19 +130,19 @@
 
     .grid {
         display: grid;
-        background-color: var(--dead-cell-color);
+        background-color: var(--grid-color);
         grid-gap: 1px 1px;
-        border: solid 1px var(--dead-cell-color);
+        border: solid 1px var(--grid-color);
     }
 
     .cell {
         width: var(--cell-size);
         height: var(--cell-size);
-        background-color: var(--alive-cell-color);
+        background-color: var(--dead-cell-color);
     }
 
     .cell.alive {
-        background-color: red;
+        background-color: var(--alive-cell-color);
     }
 
     .controls {
