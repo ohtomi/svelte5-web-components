@@ -11,6 +11,7 @@
         stopTicker,
     } from './state/';
     import {editCell} from './state/lifeGame.svelte';
+    import ProgressBar from './ProgressBar.svelte';
 
     type Props = {
         lifeGame: UnResultOk<ReturnType<typeof createLifeGame>>;
@@ -93,6 +94,9 @@
             {/each}
         {/each}
     </div>
+    <div class="progress">
+        <ProgressBar {ticker}/>
+    </div>
     <div class="controls">
         <button onclick={handleMoveAhead}
                 disabled={isMoveAheadButtonDisabled}
@@ -143,6 +147,13 @@
 
     .cell.alive {
         background-color: var(--alive-cell-color);
+    }
+
+    .progress {
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        overflow: hidden;
     }
 
     .controls {
