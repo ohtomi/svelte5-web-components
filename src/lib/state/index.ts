@@ -1,4 +1,4 @@
-import {createLifeGame, moveAhead, resetAll, selectPresetPattern} from './lifeGame.svelte';
+import {createLifeGame, editCell, moveAhead, resetAll, selectPresetPattern} from './lifeGame.svelte';
 import {newTicker, startTicker, stopTicker} from './ticker.svelte';
 
 export {
@@ -6,6 +6,7 @@ export {
     moveAhead,
     selectPresetPattern,
     resetAll,
+    editCell,
 };
 
 export {

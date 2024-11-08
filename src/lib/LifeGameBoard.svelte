@@ -3,6 +3,7 @@
     import type {UnResultOk} from './results';
     import {
         createLifeGame,
+        editCell,
         moveAhead,
         newTicker,
         resetAll,
@@ -10,7 +11,6 @@
         startTicker,
         stopTicker,
     } from './state/';
-    import {editCell} from './state/lifeGame.svelte';
     import ProgressBar from './ProgressBar.svelte';
 
     type Props = {
