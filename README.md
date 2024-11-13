@@ -1,6 +1,6 @@
 # svelte5-web-components
 
-このリポジトリーは、技術書典17「[いまからはじめる Svelte5](https://techbookfest.org/product/4925576424980480?productVariantID=5094401858600960)」第２章のサンプルコードです。
+このリポジトリーは、技術書典17「[いまからはじめる Svelte 5](https://techbookfest.org/product/geNC4S5LANeb94wrP9uYd7?productVariantID=7eSJuv79asBgtNQ1A6MVqe)」第２章のサンプルコードです。
 
 ![サンプルアプリケーション](doc/app.png)
 
